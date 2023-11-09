@@ -10,8 +10,8 @@ class SouthboundBus:
     def __init__(self):
         # Initialize any necessary resources, like network connections or command queues
         # Specify the model path here to use it throughout the class.
-        self.model_path = MODEL_PATHS['athena_v4_q4']
-        self.llm_client = LLMClient(MODEL_PATHS['athena_v4_q4'])
+        self.model_path = MODEL_PATHS['bloke_llama_2_q4']
+        self.llm_client = LLMClient(MODEL_PATHS['bloke_llama_2_q4'])
 
     def receive_command(self):
         # Logic for receiving a command from an external system
@@ -45,13 +45,13 @@ class SouthboundBus:
         max_response_tokens = 100
 
         # Option to set stop tokens if the model supports it
-        stop = ['###']
+        stop = None
 
         # Send the text input to the model and get a response
         response = self.llm_client.predict(text_input, max_tokens=max_response_tokens, stop=stop)
 
-        # Extract the text response
-        text_response = response.get('choices', [{}])[0].get('text', '')
+        # Extract the text response after the model processes the persona prompt
+        text_response = response.get('choices', [{}])[0].get('text', '').strip()
 
         # Take action based on the response
         # TODO: Implement command execution based on the response text

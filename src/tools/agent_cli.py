@@ -1,12 +1,16 @@
 # src/tools/agent_cli.py
 from src.networking.northbound_bus import NorthboundBus
 from src.networking.southbound_bus import SouthboundBus
+from src.cognition.independent.agent_persona import Personality
 
 
 def main():
     # Initialize buses
     northbound_bus = NorthboundBus()
     southbound_bus = SouthboundBus()
+
+    # Initialize persona
+    persona = Personality()
 
     # Greet the user
     print("Welcome to the ACE Command Line Interface.")
@@ -20,13 +24,17 @@ def main():
         if user_input.lower() == 'exit':
             break
 
-        # Process the command through the SouthboundBus
-        response = southbound_bus.process_control_message(user_input)
+        generated_prompt = persona.generate_prompt(user_input)
 
-        # Print the response to the user
-        print("ACE:", response.strip())
+        # Send the generated prompt to the language model through the SouthboundBus
+        agent_response = southbound_bus.process_control_message(generated_prompt)
 
-        # Optionally, print any telemetry data received from the NorthboundBus
+        # Process any telemetry information (for demonstration purposes, we use a placeholder)
+        # In a real scenario, this could include metrics like response times, etc.
+        northbound_bus.send_telemetry("User interacted with the CLI")
+
+        # Print the "in-character" response to the user
+        print("ACE:", agent_response.strip())
 
     print("Goodbye!")
 
