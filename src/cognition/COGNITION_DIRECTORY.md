@@ -24,11 +24,11 @@ cognition/ <-- High-level cognitive processes
 │         ├── layer_03_agent_model.txt  <-- Ace layer prompt
 │         └── layer_04_executive_function.txt <-- Ace layer prompt
 └── focus/ <-- Focus cognitive module
-        ├── focus_const.py <-- Task-specific constants
-        ├── focus_functions.py <-- Task-specific functions
-        ├── task_list.py <-- List of available task functions
-        └── focus_prompts/ <-- Prompts for the focus module
-            ├── focus_prompts.txt <-- Task-specific prompts
-            ├── layer_05_cognitive_control.txt <-- Ace layer prompt
-            └── layer_06_task_prosecution.txt <-- Ace layer prompt
+      ├── focus_const.py <-- Task-specific constants
+      ├── focus_functions.py <-- Task-specific functions
+      └── task_list.py <-- List of available task functions
+          └── focus_prompts/ <-- Prompts for the focus module
+              ├── focus_prompts.txt <-- Task-specific prompts
+              ├── layer_05_cognitive_control.txt <-- Ace layer prompt
+              └── layer_06_task_prosecution.txt <-- Ace layer prompt
 ```

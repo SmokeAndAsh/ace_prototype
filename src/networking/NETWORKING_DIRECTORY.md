@@ -16,12 +16,12 @@ networking <-- Handles APIs and Northbound/Southbound buses
 │         ├── northbound_log.txt
 │         └── southbound_log.txt
 └──  gateway <-- Handles sensory data
-        ├── clients/ <-- External API clients
-        └── llm/ <-- Language model inferences
-            ├── llm_client.py <-- Language model client functions
-            ├── llm_server.py <-- Language model server functions
-            ├── models/ <-- Language model files
-            │   └── llm_model.gguf <-- Example
-            └── prompt_templates/ <-- Prompt templates for language models
-                └── alpaca.txt <-- Example
+      ├── clients/ <-- External API clients
+      └── llm/ <-- Language model inferences
+          ├── llm_client.py <-- Language model client functions
+          ├── llm_server.py <-- Language model server functions
+          ├── models/ <-- Language model files
+          │   └── llm_model.gguf <-- Example
+          └── prompt_templates/ <-- Prompt templates for language models
+              └── alpaca.txt <-- Example
 ```

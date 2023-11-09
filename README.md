@@ -13,10 +13,50 @@ Agent <-- The Autonomous Cognitive Entity
       │         ├── Long Term Data <-- Vectorized(?), reviewed periodically
       │         └── Reflective Data <-- NLP Interpreted, like a "journal"
       └── Networking <-- Handles APIs and Northbound/Southbound buses
-                  ├── Gateway (Input/Output) <-- Handles API-related functionalities
-                  ├── Northbound Bus <-- Telemetry
-                  └── Southbound Bus <-- Control
+                ├── Gateway (Input/Output) <-- Handles API-related functionalities
+                ├── Northbound Bus <-- Telemetry
+                └── Southbound Bus <-- Control
 ```
+
+## High-Level
+
+**Cognition** handles high-level and abstract concepts like personality, task distribution and prioritization, ethical considerations and such. Practically speaking, it would be the final arbiter in how an agent executes a task if there's something causing indecision in the other modules.
+
+**Memory** holds the data from previous interactions, successes, and failures so that the agent can reflect on and recall the appropriate information for responses to external stimulus, like conversations and eventually sensory data and things like that.
+
+**Networking** handles the nitty gritty interactions between internal functions and services, which is gonna make it the most technically focused and program-heavy portion of the whole system. API management, dealing with errors, basically making sure the whole system won't crash if something gets caught up in it.
+
+**Example:** Language models exist in the `Networking` module and are steered by the `Cognition` module, which are influenced by the data it pulls and reflects on from the `Memory` module.
+
+## Cognition
+
+The **Global** module handles the `Aspirational Layer` and the `Global Strategy Layer`. This deals with prompts that instruct an agent on how to handle the more broad ethical and long-term components of its responses.
+
+The **Independent** module focuses more on an agent's personality and individual memories which influence more nuanced aspects of its responses and reactions to its environment and conversations. In the ACE framework, that's represented by the `Agent Model Layer` and the `Executive Function Layer`.
+
+And the **Focus** module is for handling very specific task, like dealing with APIs or sending messages to specific people or something like that. That's encapsulated by the `Cognitive Control Layer` and `Task Prosecution Layer` in the ACE framework.
+
+**Example:** The `Focus` module executes a task based on the instructions and guidance it receives from the `Independent` module, which is influenced by the agent's persona as well as the ethical and aspirational imperatives provided by the `Global` module.
+
+## Memory
+
+**Short-Term Data** is cached data that is regularly reviewed, filtered and flushed. Intended for immediate use and current conversational context.
+
+**Long-Term Data** is data that is stored in a persistent database for later reflection and recollection when appropriate. Intended for information that is unlikely to change very often and likely to be referenced with some regularity.
+
+**Reflective Data** is intended to be a sort of "journal" for agents to review and reflect on stored data to contextualize and understand it in the context of their individual experience. This allows for more nuanced understanding of events and concepts over a period of time.
+
+**Example:** In an exchange on a platform like Discord, the ACE agent would have the immediate conversation context saved as `Short-Term Data`, and if parts of the conversation are considered relevant for later use, it will be saved as `Long-Term Data`. After some criteria is met, the agent will review and reflect on the both forms of data it has collected, write a summary to be saved as `Reflective Data`, and decide if any of that information needs to be altered or removed.
+
+## Networking
+
+The **Gateway** handles interactions with inputs and outputs from APIs, such as language models and external services.
+
+The **Northbound Bus** carries internal and external data through the ACE agent. Provides telemetry and useful data to flow through the agent while logging and handling errors and exceptions as they arise.
+
+The **Southbound Bus** carries instructions through the ACE agent.  Provides direction and guidance for processes and functions throughout the system.
+
+**Example:** The `Southbound Bus` directs the appropriate processes in response to the input received from the `Gateway` module and interactions from APIs and so on. If an error occurs or telemetry is meant to be documented, the `Northbound Bus` will track and log this data, and respond to any exceptions as needed.
 
 # Current Project Goals
 
