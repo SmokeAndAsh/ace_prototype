@@ -1,27 +1,27 @@
 # Networking Directory
+Utilizing libraries such as requests for HTTP communication or paho-mqtt for MQTT can be helpful for handling various networking protocols.
+
 ```
 networking <-- Handles APIs and Northbound/Southbound buses
-├── networking.py
+├── __init__.py
+├── northbound_bus.py <-- Telemetry
+├── southbound_bus.py <-- Control
 ├── error_handling/
 │     ├── client_error_handler.py <-- Handles client-specific errors
 │     ├── gateway_error_handler.py <-- Handles gateway-specific errors
 │     ├── llm_error_handler.py <-- Handles LLM-specific errors
-│     └── network_error_handler.py <-- Handles network-specific errors
-├── gateway/ <-- Handles sensory data
-│     ├── gateway.py
-│     ├── clients/ <-- External API clients
-│     │         └── client.py
-│     └── llm/ <-- Language model inferences
-│                 ├── llm_client.py
-│                 ├── llm_server.py
-│                 ├── llm_utils.py
-│                 └── models/ <-- Language model files
-│                            ├── athena-v4.Q4_K_M.gguf
-│                            ├── athena-v4.Q4_K_M.gguf
-│                            ├── llama-2-7b-chat.Q4_K_M.gguf
-│                            └── llama-2-7b-chat.Q5_K_S.gguf
-├── northbound_bus/ <-- Telemetry
-│     └── northbound_bus.py
-└── southbound_bus/ <-- Control
-      └── southbound_bus.py
+│     ├── network_error_handler.py <-- Handles network-specific errors
+│     └── logs/
+│         ├── nb_logging.py <-- Logs networking-related telemetry
+│         ├── northbound_log.txt
+│         └── southbound_log.txt
+└──  gateway <-- Handles sensory data
+        ├── clients/ <-- External API clients
+        └── llm/ <-- Language model inferences
+            ├── llm_client.py <-- Language model client functions
+            ├── llm_server.py <-- Language model server functions
+            ├── models/ <-- Language model files
+            │   └── llm_model.gguf <-- Example
+            └── prompt_templates/ <-- Prompt templates for language models
+                └── alpaca.txt <-- Example
 ```
