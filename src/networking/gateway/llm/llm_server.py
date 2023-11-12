@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from llm_client import HuggingFaceClient
 
 app = Flask(__name__)
-model_client = HuggingFaceClient("TheBloke/Athena-v4-GGUF")
+model_client = HuggingFaceClient("TheBloke/Llama-2-7B-Chat-GGUF")
 
 
 @app.route("/predict", methods=["POST"])

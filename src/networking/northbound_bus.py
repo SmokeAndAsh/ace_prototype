@@ -11,8 +11,8 @@ class NorthboundBus:
     def __init__(self):
         # Initialize any necessary resources, like network connections or queues
         # Specify the model path here to use it throughout the class.
-        self.model_path = MODEL_PATHS['bloke_llama_2_q4']
-        self.llm_client = LLMClient(MODEL_PATHS['bloke_llama_2_q4'])
+        self.model_path = MODEL_PATHS['athena_q4']
+        self.llm_client = LLMClient(MODEL_PATHS['athena_q4'])
 
     def send_telemetry(self, data):
         # Process and format the telemetry data

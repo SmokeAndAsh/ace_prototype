@@ -10,8 +10,8 @@ class SouthboundBus:
     def __init__(self):
         # Initialize any necessary resources, like network connections or command queues
         # Specify the model path here to use it throughout the class.
-        self.model_path = MODEL_PATHS['bloke_llama_2_q4']
-        self.llm_client = LLMClient(MODEL_PATHS['bloke_llama_2_q4'])
+        self.model_path = MODEL_PATHS['athena_q4']
+        self.llm_client = LLMClient(MODEL_PATHS['athena_q4'])
 
     def receive_command(self):
         # Logic for receiving a command from an external system

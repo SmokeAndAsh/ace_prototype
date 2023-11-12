@@ -4,6 +4,7 @@ This module can leverage natural language processing libraries like NLTK or spaC
 ```
 cognition/ <-- High-level cognitive processes
 ├── __init__.py
+├── COGNITION_DIRECTORY.md <-- Here
 ├── error_handling/
 │     ├── focus_error_handler.py <-- Handles Focus-module errors
 │     ├── global_error_handler.py <-- Handles Global-module errors
@@ -26,9 +27,15 @@ cognition/ <-- High-level cognitive processes
 └── focus/ <-- Focus cognitive module
       ├── focus_const.py <-- Task-specific constants
       ├── focus_functions.py <-- Task-specific functions
-      └── task_list.py <-- List of available task functions
-          └── focus_prompts/ <-- Prompts for the focus module
-              ├── focus_prompts.txt <-- Task-specific prompts
-              ├── layer_05_cognitive_control.txt <-- Ace layer prompt
-              └── layer_06_task_prosecution.txt <-- Ace layer prompt
+      ├── task_list.py <-- List of available task functions
+      ├── focus_actions/ <-- Classes for specific agent actions
+      │   ├── action_memory.py <-- Actions related to agent memory
+      │   ├── action_message.py <-- Actions related to text-based communications
+      │   ├── action_perform.py <-- Class for evaluating and executing actions
+      │   ├── action_time.py <-- Actions related to time management
+      │   └── action_web.py <-- Actions related to web content and media
+      └── focus_prompts/ <-- Prompts for the focus module
+          ├── focus_prompts.txt <-- Task-specific prompts
+          ├── layer_05_cognitive_control.txt <-- Ace layer prompt
+          └── layer_06_task_prosecution.txt <-- Ace layer prompt
 ```

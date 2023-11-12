@@ -1,16 +1,18 @@
 # Memory Directory
-For data management, Python offers libraries such as SQLite for simple database storage, or you can integrate more complex solutions if necessary.
+Module managing long-term, short-term and reflective data for the ACE agent.
 
 ```
 memory/ <-- Handles short and long term data management
 ├── __init__.py
+├── MEMORY_DIRECTORY.md <-- Here
+├── error_handling/
+│     ├── ltm_error_handler.py <-- Handles long-term memory errors
+│     ├── stm_error_handler.py <-- Handles short-term memory errors
+│     └── rm_error_handler.py <-- Handles reflective memory errors
 ├── short_term_data/ <-- Cached, refreshed frequently
-│   ├── tba
-│   └── tba
+│   └── stm_main.py
 ├── long_term_data/ <-- Vectorized, reviewed periodically
-│   ├── tba
-│   └── tba
+│   └── ltm_main.py
 └── reflective_data/ <-- NLP Interpreted, like a "journal"
-    ├── tba
-    └── tba
+    └── reflective_main.py
 ```

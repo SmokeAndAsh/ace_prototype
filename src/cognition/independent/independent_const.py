@@ -2,10 +2,12 @@
 from enum import Enum, auto
 
 
-class IndependentConstants:
-    # Constants that make up the ACE's unique personality and state
-    UNIQUE_IDENTIFIER = "ACE-001"  # Unique ID for the ACE instance
-    PREFERRED_LEARNING_STYLE = "Visual"  # Example of a personality trait
+class EmotionalState(Enum):
+    CALM = auto()
+    ANXIOUS = auto()
+    JOYFUL = auto()
+    SAD = auto()
+    ANGRY = auto()
 
 
 class MBTIDimension(Enum):
@@ -19,7 +21,18 @@ class MBTIDimension(Enum):
     PERCEIVING = auto()
 
 
+class PersonalityTrait(Enum):
+    FRIENDLY = auto()
+    INTELLIGENT = auto()
+    CREATIVE = auto()
+    CURIOUS = auto()
+    LAID_BACK = auto()
+    STRATEGIC = auto()
+
+
 class IndependentConstants:
+    # Constants that are unique to each individual ACE instance
+    UNIQUE_IDENTIFIER = "ACE-001"  # Unique ID for the ACE instance
     PERSONALITY_MATRIX = {
         MBTIDimension.INTROVERSION: 0.5,  # Placeholder values, range [0,1]
     }

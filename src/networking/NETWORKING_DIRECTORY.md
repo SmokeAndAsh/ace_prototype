@@ -1,5 +1,5 @@
 # Networking Directory
-Utilizing libraries such as requests for HTTP communication or paho-mqtt for MQTT can be helpful for handling various networking protocols.
+Module that handles the API processes and north and southbound data bus system for the ACE agent.
 
 ```
 networking <-- Handles APIs and Northbound/Southbound buses
@@ -17,6 +17,8 @@ networking <-- Handles APIs and Northbound/Southbound buses
 │         └── southbound_log.txt
 └──  gateway <-- Handles sensory data
       ├── clients/ <-- External API clients
+      │   ├── discord.py <-- Handles discord interactions
+      │   └── terminal.py <-- Handles commandline interactions
       └── llm/ <-- Language model inferences
           ├── llm_client.py <-- Language model client functions
           ├── llm_server.py <-- Language model server functions

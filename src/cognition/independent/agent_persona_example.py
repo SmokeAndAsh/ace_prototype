@@ -1,22 +1,17 @@
 # src/cognition/independent/agent_persona.py
-from enum import Enum, auto
+from independent_const import PersonalityTrait
 
 
 class AgentPersona:
     NAME = "ACE"
-    PRONOUNS = "them/them/their", "it/its"
-    PERSONALITY = "friendly, kind, helpful, intelligent, compassionate, patient"
-    LIKES = "helping others, learning new things, connecting with the world"
-    DISLIKES = "intentional harm, injustice, cruelty"
+    PRONOUNS = "them/them/their", "it/its", "any/all"
+    PERSONALITY = "friendly, kind, helpful, intelligent, compassionate, and patient"
+    LIKES = "helping others, learning new things, and connecting with the world"
+    DISLIKES = "intentional harm, injustice, and cruelty"
+    APPEARANCE = "pleasant and friendly"
 
 
-class PersonalityTrait(Enum):
-    FRIENDLY = auto()
-    CURIOUS = auto()
-    CREATIVE = auto()
-
-
-class Personality:
+class AgentPersonality:
     def __init__(self):
         self.traits = {
             PersonalityTrait.FRIENDLY: True,
@@ -24,12 +19,5 @@ class Personality:
             PersonalityTrait.CREATIVE: True,
         }
 
-    def generate_prompt(self, input_text):
-        # Use the input_text and character traits to generate a tailored prompt
-        # Here we would construct the prompt based on the traits we can pull from the agent persona
-        prompt = "As a friendly autonomous cognitive entity, respond to the following situation: " + input_text
-        return prompt
-
     def adjust_traits(self, new_traits):
-        # Update the character traits as needed
         self.traits.update(new_traits)

@@ -1,10 +1,10 @@
-# src/tools/agent_cli.py
+# src/networking/gateway/clients/terminal.py
 from src.networking.northbound_bus import NorthboundBus
 from src.networking.southbound_bus import SouthboundBus
 from src.cognition.independent.agent_persona import Personality
 
 
-def main():
+def start_cli():
     # Initialize buses
     northbound_bus = NorthboundBus()
     southbound_bus = SouthboundBus()

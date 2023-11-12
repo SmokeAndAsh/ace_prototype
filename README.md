@@ -3,7 +3,7 @@ A very in-process prototype for an Autonomous Cognitive Entity based on David Sh
 
 ```
 Agent <-- The Autonomous Cognitive Entity
-└── Core <-- where the `src` folder would be
+└── Core <-- Where the `src` folder is
       ├── Cognition <-- High-level cognitive processes for the agent
       │         ├── Global <-- Global cognitive module
       │         ├── Independent <-- Independent cognitive module
