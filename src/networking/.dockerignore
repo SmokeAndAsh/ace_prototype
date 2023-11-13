@@ -1,7 +1,5 @@
-# Ignore Files
+# src/networking/.dockerignore
 
-config.py
-cognition/independent_mod/agent_persona.py
 networking/error_handling/logs/northbound_log.txt
 networking/error_handling/logs/southbound_log.txt
 networking/gateway/llm/models/*

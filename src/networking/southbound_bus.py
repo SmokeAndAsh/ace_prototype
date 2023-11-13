@@ -2,8 +2,6 @@
 from src.config import MODEL_PATHS
 from src.networking.gateway.llm.llm_client import LLMClient
 
-# TODO: Set up process for dynamic model selection
-
 
 class SouthboundBus:
     """Handles control commands and downward directives."""
@@ -32,7 +30,7 @@ class SouthboundBus:
         model_client = LLMClient(self.model_path)
 
         # Send the text input to the model and get a response
-        response = model_client.predict(text_input)
+        response = model_client.predict(text_input, max_tokens=100, stop=None)
 
         # Take action based on the response
         # TODO: Implement command execution based on the model's response

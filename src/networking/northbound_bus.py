@@ -1,26 +1,52 @@
 # src/networking/northbound_bus.py
-from src.config import MODEL_PATHS
+import requests
+
 from src.networking.gateway.llm.llm_client import LLMClient
+from src.networking.gateway.llm.llm_config import conversational_llm
+from src.networking.error_handling.client_error_handler import ClientError
+from src.networking.error_handling.gateway_error_handler import GatewayError
+from src.networking.error_handling.llm_error_handler import LLMError
+from src.networking.error_handling.network_error_handler import NetworkError
 from src.networking.error_handling.logs.nb_logging import NorthboundLogger
 
-# TODO: Set up process for dynamic model selection
+
+def report_error(error_data):
+    # Log the error
+    NorthboundLogger.log_error(error_data)
 
 
 class NorthboundBus:
     """Handles telemetry and upward data flow."""
     def __init__(self):
-        # Initialize any necessary resources, like network connections or queues
-        # Specify the model path here to use it throughout the class.
-        self.model_path = MODEL_PATHS['athena_q4']
-        self.llm_client = LLMClient(MODEL_PATHS['athena_q4'])
+        self.llm_client = LLMClient(conversational_llm)
+
+    def initialize_network_connections(self):
+        # Initialize HTTP or other network clients
+        self.http_client = requests.Session()  # Example for HTTP requests
+        # Additional network initialization as needed
 
     def send_telemetry(self, data):
-        # Process and format the telemetry data
-        # Send the data to the relevant endpoint or system
-        pass
+        try:
+            # Process and format the telemetry data
+            formatted_data = self.format_telemetry_data(data)
 
-    def report_error(self, error_data):
-        # Format and send error data to the monitoring system
+            # Send the data to the relevant endpoint or system
+            self.send_to_monitoring_system(formatted_data)
+
+            # Log the successful telemetry transmission
+            NorthboundLogger.log_message(f"Telemetry data sent: {formatted_data}")
+
+        except (ClientError, GatewayError, LLMError, NetworkError) as e:
+            # Log the error
+            NorthboundLogger.log_error(str(e))
+
+    def format_telemetry_data(self, data):
+        # Implement the logic to format the telemetry data
+        # Example: Convert to JSON, summarize, etc.
+        return formatted_data
+
+    def send_to_monitoring_system(self, formatted_data):
+        # Implement the logic to send data to a monitoring system or database
         pass
 
     def get_nlp_inference(self, text_input):
@@ -37,6 +63,4 @@ class NorthboundBus:
         # Return the formatted response
         return response
 
-    def report_error(self, error_data):
-        # Log the error
-        NorthboundLogger.log_error(error_data)
+

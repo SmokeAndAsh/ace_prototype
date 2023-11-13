@@ -1,5 +1,5 @@
 # start.py
-from src.networking.gateway.clients.terminal import start_cli
+from src.networking.gateway.clients.terminal_cli import start_cli
 
 
 def main():

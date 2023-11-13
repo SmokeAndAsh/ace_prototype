@@ -1,9 +1,9 @@
 # src/networking/gateway/client/llm_server.py
 from flask import Flask, request, jsonify
-from llm_client import HuggingFaceClient
+from llm_client import LLMClient
 
 app = Flask(__name__)
-model_client = HuggingFaceClient("TheBloke/Llama-2-7B-Chat-GGUF")
+model_client = LLMClient("TheBloke/Llama-2-7B-Chat-GGUF")
 
 
 @app.route("/predict", methods=["POST"])

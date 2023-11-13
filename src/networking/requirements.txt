@@ -1,0 +1,4 @@
+diskcache
+llama-cpp-python
+numpy
+typing-extensions

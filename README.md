@@ -1,6 +1,8 @@
 # ACE Prototype Overview
 A very in-process prototype for an Autonomous Cognitive Entity based on David Shapiro's [ACE Framework](https://github.com/daveshap/ACE_Framework/blob/main/ACE_Framework.md).
 
+`start.py` is currently set up to run a command line test with a local language model.
+
 ```
 Agent <-- The Autonomous Cognitive Entity
 └── Core <-- Where the `src` folder is
