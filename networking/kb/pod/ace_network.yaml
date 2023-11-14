@@ -1,13 +1,13 @@
-# networking/kb/pod/ace_networking.yaml
+# networking/kb/pod/ace_network.yaml
 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ace-networking
+  name: ace-network
 spec:
   containers:
-    - name: networking-container
-      image: ace-proto-networking:latest
+    - name: network-container
+      image: ace-proto-network:latest
       ports:
         - containerPort: 8080
       env:

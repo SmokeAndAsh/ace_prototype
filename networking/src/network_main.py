@@ -1,4 +1,4 @@
-# src/networking/networking_main.py
+# src/networking/network_main.py
 from gateway.clients.web_cli import web_app
 from gateway.llm.llm_config import CURRENT_MODELS, conversational_llm
 from gateway.llm.llm_client import LLMClient

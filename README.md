@@ -4,20 +4,44 @@ A very in-process prototype for an Autonomous Cognitive Entity based on David Sh
 `start.py` is currently set up to run a command line test with a local language model.
 
 ```
-Agent <-- The Autonomous Cognitive Entity
-└── Core <-- Where the `src` folder is
-      ├── Cognition <-- High-level cognitive processes for the agent
-      │         ├── Global <-- Global cognitive module
-      │         ├── Independent <-- Independent cognitive module
-      │         └── Focus <-- Focus cognitive module
-      ├── Memory <-- Handles short and long term data management
-      │         ├── Short Term Data <-- Cached, refreshed frequently
-      │         ├── Long Term Data <-- Vectorized(?), reviewed periodically
-      │         └── Reflective Data <-- NLP Interpreted, like a "journal"
-      └── Networking <-- Handles APIs and Northbound/Southbound buses
-                ├── Gateway (Input/Output) <-- Handles API-related functionalities
-                ├── Northbound Bus <-- Telemetry
-                └── Southbound Bus <-- Control
+ace/ <-- Project root
+├── README.md
+├── start.py <-- Currently for testing purposes
+├── models/ <-- Folder for ACE models (language models, visual models, etc.)
+├── cognition <-- High-level cognitive processes for the agent
+│   ├── COGNITION.md
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── kb/ <-- Kubernetes files
+│   └── src/
+│       ├── cognition_main.py <-- Starts `Cognition` container
+│       ├── error_handling/ <-- Cognition error handling
+│       ├── global_mod/ <-- Global cognitive module
+│       ├── independent_mod/ <-- Independent cognitive module
+│       └── focus_mod/ <-- Focus cognitive module
+├── memory/ <-- Handles short and long term data management
+│   ├── MEMORY.md
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── kb/ <-- Kubernetes files
+│   └── src/
+│       ├── memory_main.py <-- Starts `Memory` container
+│       ├── error_handling/ <-- Memory error handling
+│       ├── short_term_data/ <-- Cached, refreshed frequently
+│       ├── long_term_data/ <-- Vectorized, reviewed periodically
+│       └── reflective_data/ <-- NLP Interpreted, like a "journal"
+└── network/ <-- Handles APIs and Northbound/Southbound buses
+    ├── NETWORK.md
+    ├── Dockerfile
+    ├── requirements.txt
+    ├── kb/ <-- Kubernetes files
+    └── src/
+        ├── network_main.py <-- Starts `Network` container
+        ├── northbound_bus.py <-- Telemetry
+        ├── southbound_bus.py <-- Control
+        ├── error_handling/ <-- Network error handling
+        ├── gateway/ <-- Internal and external communications management
+        └── logs/ <-- Logs from the Northbound Bus
 ```
 
 ## High-Level
@@ -26,9 +50,9 @@ Agent <-- The Autonomous Cognitive Entity
 
 **Memory** holds the data from previous interactions, successes, and failures so that the agent can reflect on and recall the appropriate information for responses to external stimulus, like conversations and eventually sensory data and things like that.
 
-**Networking** handles the nitty gritty interactions between internal functions and services, which is gonna make it the most technically focused and program-heavy portion of the whole system. API management, dealing with errors, basically making sure the whole system won't crash if something gets caught up in it.
+**Network** handles the nitty gritty interactions between internal functions and services, which is gonna make it the most technically focused and program-heavy portion of the whole system. API management, dealing with errors, basically making sure the whole system won't crash if something gets caught up in it.
 
-**Example:** Language models exist in the `Networking` module and are steered by the `Cognition` module, which are influenced by the data it pulls and reflects on from the `Memory` module.
+**Example:** Language models exist in the `Network` module and are steered by the `Cognition` module, which are influenced by the data it pulls and reflects on from the `Memory` module.
 
 ## Cognition
 

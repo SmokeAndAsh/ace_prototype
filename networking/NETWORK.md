@@ -1,21 +1,21 @@
-# Networking Directory
+# Network Directory
 Module that handles the API processes and north and southbound data bus system for the ACE agent.
 
 ```
-networking <-- Handles APIs and Northbound/Southbound buses
-├── NETWORKING.md
+network <-- Handles APIs and Northbound/Southbound buses
+├── NETWORK.md
 ├── Dockerfile
 ├── requirements.txt
 ├── .dockerignore
 ├── kb/
 │   ├── pod/
-│   │   └── ace_networking.yaml
+│   │   └── ace_network.yaml
 │   ├── service/
-│   │   └── networking_service.yaml
+│   │   └── network_service.yaml
 │   └── deployment/
-│       └── networking_deployment.yaml
+│       └── network_deployment.yaml
 └── src/
-    ├── networking_main.py <-- Starts `Networking` module
+    ├── network_main.py <-- Starts `Networking` module
     ├── northbound_bus.py <-- Telemetry
     ├── southbound_bus.py <-- Control  
     ├── error_handling/
@@ -45,7 +45,7 @@ networking <-- Handles APIs and Northbound/Southbound buses
         └── southbound_log.txt
 ```
 
-# Networking Stack
+# Network Stack
 - Flask (flask)
 - Kubernetes (kubectl)
 - Markdown (markdown)
