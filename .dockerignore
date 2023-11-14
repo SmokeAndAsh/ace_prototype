@@ -2,18 +2,17 @@
 /shelf/
 /workspace.xml
 .idea/git_toolbox_prj.xml
-src/__pycache__/
-src/cognition/__pycache__/
-src/cognition/independent_mod/__pycache__/
-src/networking/__pycache__/
-src/networking/error_handling/logs/__pycache__/
-src/networking/gateway/llm/__pycache__/
-src/tools/__pycache__/
+__pycache__/
+cognition/__pycache__/
+cognition/src/independent_mod/__pycache__/
+networking/__pycache__/
+networking/src/error_handling/logs/__pycache__/
+networking/src/gateway/llm/__pycache__/
 
 # Ignore project files
 config.py
-cognition/independent_mod/agent_persona.py
-networking/error_handling/logs/northbound_log.txt
-networking/error_handling/logs/southbound_log.txt
-networking/gateway/llm/models/*
-networking/gateway/llm/prompt_templates/*
+models/*
+cognition/src/independent_mod/agent_persona.py
+networking/src/error_handling/logs/northbound_log.txt
+networking/src/error_handling/logs/southbound_log.txt
+networking/src/gateway/llm/prompt_templates/*

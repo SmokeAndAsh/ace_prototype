@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="PYTHON_MODULE" version="4">
+<module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (companion)" jdkType="Python SDK" />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyNamespacePackagesService">
-    <option name="namespacePackageFolders">
-      <list>
-        <option value="$MODULE_DIR$/src" />
-      </list>
-    </option>
-  </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="d37fcae5-00ff-4fcf-bf62-b8be6b3eaabf" />
+    <option name="uniqueId" value="c432fc6e-8613-4e0b-98f4-59a562b243c4" />
   </component>
 </module>

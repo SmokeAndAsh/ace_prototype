@@ -1,14 +1,3 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-
-# Additional ignored files
-.idea/git_toolbox_prj.xml
-.idea/sonarlint/
-src/__pycache__/
-src/cognition/__pycache__/
-src/cognition/independent/__pycache__/
-src/networking/__pycache__/
-src/networking/error_handling/logs/__pycache__/
-src/networking/gateway/llm/__pycache__/
-src/tools/__pycache__/
