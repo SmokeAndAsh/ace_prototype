@@ -2,7 +2,7 @@
 Central repository for language models.
 
 ```
-library/ <-- High-level cognitive processes
+library/
 ├── LIBRARY.md
 ├── 000_computation/
 │   ├── 000.1_performance_enhancement/ <-- Models optimized for speed and efficiency.
