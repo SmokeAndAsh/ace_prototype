@@ -7,7 +7,11 @@ A very in-process prototype for an Autonomous Cognitive Entity based on David Sh
 ace/ <-- Project root
 ├── README.md
 ├── start.py <-- Currently for testing purposes
-├── models/ <-- Folder for ACE models (language models, visual models, etc.)
+├── library/ <-- Library for llamafiles
+│   ├── LIBRARY.md
+│   ├── 000
+│   ├── ...
+│   └── 900
 ├── cognition <-- High-level cognitive processes for the agent
 │   ├── COGNITION.md
 │   ├── Dockerfile
@@ -74,7 +78,7 @@ And the **Focus** module is for handling very specific task, like dealing with A
 
 **Example:** In an exchange on a platform like Discord, the ACE agent would have the immediate conversation context saved as `Short-Term Data`, and if parts of the conversation are considered relevant for later use, it will be saved as `Long-Term Data`. After some criteria is met, the agent will review and reflect on the both forms of data it has collected, write a summary to be saved as `Reflective Data`, and decide if any of that information needs to be altered or removed.
 
-## Networking
+## Network
 
 The **Gateway** handles interactions with inputs and outputs from APIs, such as language models and external services.
 
@@ -87,7 +91,7 @@ The **Southbound Bus** carries instructions through the ACE agent.  Provides dir
 # Current Project Goals
 
 - Set up agent persona (Cognition)
-- Get communication flow between agent and CLI (Networking)
+- Get communication flow between agent and CLI (Network)
 - Create simple memory system (Memory)
 
 # ACE Framework Breakdown

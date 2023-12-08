@@ -1,6 +1,4 @@
 
-H
-networking/NETWORKING.md,8/6/86b364d9e5e15452dd2c4ba1b4230081ac0c4a26
 @
 memory/MEMORY.md,3/c/3cabbde2dad175bc9c5b1501b740a45aa5c0871b
 F
@@ -105,10 +103,6 @@ A
 memory/Dockerfile,2/0/207e5a2e7d07c6e02ce4ab918493b8a0f68b6785
 G
 memory/requirements.txt,d/3/d3c51ae7aef3a52bc951a2d7ddb149e46aa12c3c
-]
--networking/kb/service/networking_service.yaml,b/0/b0c37db717945ee886ea56d0e35b4166ab4b1fa1
-c
-3networking/kb/deployment/networking_deployment.yaml,d/7/d73690f19d429e53ca64ca6322ea3fd28d63478f
 ^
 .memory/src/error_handling/stm_error_handler.py,f/d/fd893bca9097b1d4f20a6115acce54c8f5bfe110
 ]
@@ -127,8 +121,6 @@ a
 .networking/src/gateway/clients/terminal_cli.py,1/d/1dcedc3186bc0c896bb9c499a9db577a407a210d
 ]
 -networking/src/gateway/clients/discord_cli.py,7/f/7fb871485e05aed71004ba069c9385e7ae43f77e
-U
-%networking/kb/pod/ace_networking.yaml,c/f/cf6ae1af5ddbd3aced98e55bff08e6b7c0fccfa1
 f
 6networking/src/error_handling/network_error_handler.py,e/9/e95e94aa2d10723fbd144845d99a80f604c44658
 b
@@ -168,8 +160,6 @@ V
 &networking/src/logs/northbound_log.txt,8/6/86991f4ebac91a20891961d3135143b7e230bd53
 P
  networking/src/southbound_bus.py,e/6/e6654a9a27ae10c875b20b0adc08b52602d92e6a
-Q
-!networking/src/networking_main.py,c/f/cf9bde156dbaef14b59ead8b4799af4f132b247d
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 E
@@ -182,3 +172,5 @@ Z
 *networking/kb/service/network_service.yaml,6/6/66f4a8355e70676d1259523fbbdab5601557a808
 N
 networking/src/network_main.py,4/7/47bcc2f52aeb4ecb133e8109862c0dbb9437c995
+B
+library/LIBRARY.md,d/7/d733f7e1a657df7ada775107064a148c249f602f
