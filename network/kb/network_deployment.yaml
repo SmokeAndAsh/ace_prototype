@@ -1,0 +1,22 @@
+# network/kb/network_deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: network
+  template:
+    metadata:
+      labels:
+        app: network
+    spec:
+      containers:
+        - name: network-container
+          image: network-module:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080

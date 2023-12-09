@@ -1,0 +1,13 @@
+# network/kb/network_service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: network-service
+spec:
+  selector:
+    app: network
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
