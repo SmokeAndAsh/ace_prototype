@@ -88,11 +88,17 @@ The **Southbound Bus** carries instructions through the ACE agent.  Provides dir
 
 **Example:** The `Southbound Bus` directs the appropriate processes in response to the input received from the `Gateway` module and interactions from APIs and so on. If an error occurs or telemetry is meant to be documented, the `Northbound Bus` will track and log this data, and respond to any exceptions as needed.
 
-# Current Project Goals
+# Programming Stack
 
-- Set up agent persona (Cognition)
-- Get communication flow between agent and CLI (Network)
-- Create simple memory system (Memory)
+- Programming Language(s): Python, Dockerfile
+- API Framework: Flask
+- Configuration: ConfigMaps
+- Container Management: Kubernetes, MicroK8s, Podman
+- Container Orchestration: Helm Charts
+- Database Management: PostgreSQL
+- Logging: Prometheus, Grafana
+- Security: OAuth, Secrets
+- Task Management: Apache Kafka, WebSockets
 
 # ACE Framework Breakdown
 1. **Aspirational Layer (Layer 1):** Translate the ethical framework into a set of Python classes and methods that process incoming information from the northbound bus to make value-aligned decisions. This might involve NLP tasks to interpret moral dilemmas or general mission goals.

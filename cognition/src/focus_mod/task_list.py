@@ -1,4 +1,4 @@
-# src/cognition/focus/task_list.py
+# cognition/focus_mod/task_list.py
 from cognition.focus_mod.focus_functions import FocusFunctions
 
 TASK_LIST = {

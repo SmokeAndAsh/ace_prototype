@@ -1,4 +1,4 @@
-# src/cognition/focus/focus_const.py
+# cognition/src/focus_mod/focus_const.py
 
 """
 The `Focus` module is the most, well, focused module, lol.

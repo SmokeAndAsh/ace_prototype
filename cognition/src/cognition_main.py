@@ -1,4 +1,4 @@
-# src/cognition/cognition_main.py
+# cognition/src/cognition_main.py
 
 """
 The purpose of the `Cognition` module is to handle language model functions and prompts at a more abstract level, directing higher processes for the agent and providing guidance based on the agent's specific code of ethics (global), persona (individual), and task (focus).

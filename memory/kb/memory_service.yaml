@@ -1,0 +1,13 @@
+# memory/kb/memory_service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: memory-service
+spec:
+  selector:
+    app: memory
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5002

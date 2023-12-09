@@ -1,5 +1,5 @@
 FROM python:3.10-slim
 WORKDIR /memory
-COPY src/memory/ ./
+COPY ./ ./
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "./memory_main.py"]
+CMD ["python", "./src/memory_main.py"]

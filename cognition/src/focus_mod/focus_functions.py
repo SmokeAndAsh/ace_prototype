@@ -1,6 +1,10 @@
-# src/cognition/focus/focus_functions.py
-L5_prompt_path = "src/cognition/focus/focus_prompts/L5_cognitive_control.md"
-L6_prompt_path = "src/cognition/focus/focus_prompts/L6_task_prosecution.md"
+# cognition/src/focus_mod/focus_functions.py
+import os
+
+LANGUAGE_MODEL_ENDPOINT = os.getenv('LANGUAGE_MODEL_ENDPOINT', 'default/api/endpoint')
+
+L5_prompt_path = os.getenv('L5_PROMPT_PATH', 'src/focus_mod/focus_prompts/L5_cognitive_control.md')
+L6_prompt_path = os.getenv('L6_PROMPT_PATH', 'src/focus_mod/focus_prompts/L6_task_prosecution.md')
 
 
 def read_markdown_prompt(file_path):
@@ -37,6 +41,14 @@ class FocusFunctions:
 
 
 class FocusCommunication:
+
+    def interact_with_language_model(prompt):
+        response = requests.post(LANGUAGE_MODEL_ENDPOINT, json={'prompt': prompt})
+        if response.status_code == 200:
+            return response.json()
+        else:
+            # Handle error scenarios
+            return None
 
     @staticmethod
     def report_task_status(*args, **kwargs):

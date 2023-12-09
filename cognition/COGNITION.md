@@ -8,12 +8,8 @@ cognition/ <-- High-level cognitive processes
 ├── requirements.txt
 ├── .dockerignore
 ├── kb/
-│   ├── pod/
-│   │   └── ace_cognition.yaml
-│   ├── service/
-│   │   └── cognition_service.yaml
-│   └── deployment/
-│       └── cognition_deployment.yaml
+│   ├── cognition_deployment.yaml
+│   └── cognition_service.yaml
 └── src/
     ├── cognition_main.py <-- Starts `Networking` module
     ├── error_handling/

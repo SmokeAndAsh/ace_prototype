@@ -1,5 +1,0 @@
-# src/networking/.dockerignore
-
-networking/error_handling/logs/northbound_log.txt
-networking/error_handling/logs/southbound_log.txt
-networking/gateway/llm/prompt_templates/*

@@ -1,4 +1,4 @@
-# src/cognition/global/global_const.py
+# cognition/src/global_mod/global_const.py
 
 """
 The `Global` module is the most abstract and hosts the base-line ethical considerations and foundational understanding of the world that would be compatible with any agent.
@@ -7,5 +7,12 @@ The `Global` module is the most abstract and hosts the base-line ethical conside
 
 
 class GlobalConstants:
-    # Values and guidelines that dictate the ACE's global behavior
-    MAX_DECISION_LATENCY = 1.0  # Maximum time in seconds for a decision to be made
+    MAX_DECISION_LATENCY = 1.0  # seconds
+    RISK_ASSESSMENT_THRESHOLD = 0.7  # Example threshold for risk assessments
+    RESOURCE_UTILIZATION_LIMIT = 80  # percent
+    ETHICAL_PRINCIPLE_FACTOR = {
+        'harm_reduction': 1.0,
+        'fairness': 0.8,
+        'equity': 0.9
+    }
+    MODEL_VERSION = "1.0"  # Identifier for the ethical or decision-making model version

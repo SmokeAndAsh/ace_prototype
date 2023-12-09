@@ -1,0 +1,14 @@
+# cognition/src/focus_mod/focus_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: focus-config
+data:
+  TASK_PRIORITY_THRESHOLD: "5"
+  LANGUAGE_MODEL_ENDPOINT: "http://language-model-api-endpoint"
+  # ... other configurations ...
+
+# Paths
+L5_PROMPT_PATH: "src/focus_mod/focus_prompts/L5_cognitive_control.md"
+L6_PROMPT_PATH: "src/focus_mod/focus_prompts/L6_task_prosecution.md"

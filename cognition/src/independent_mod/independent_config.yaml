@@ -1,0 +1,23 @@
+# cognition/src/independent_mod/independent_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: independent-config
+data:
+  # Unique Identifier for the ACE instance
+  UNIQUE_IDENTIFIER: "ACE-001"
+
+  # Initial Personality Traits
+  FRIENDLY: "True"
+  CURIOUS: "True"
+  CREATIVE: "True"
+  # ... other traits ...
+
+  # Emotional State Parameters
+  DEFAULT_EMOTIONAL_STATE: "CALM"
+  # ... other parameters ...
+
+  # Paths
+  L3_PROMPT_PATH: "src/independent_mod/independent_prompts/L3_agent_model.md"
+  L4_PROMPT_PATH: "src/independent_mod/independent_prompts/L4_executive_function.md"

@@ -1,7 +1,9 @@
-# src/cognition/global/global_functions.py
-L1_prompt_path = "src/cognition/global/global_prompts/L1_aspiration.md"
-L2_prompt_path = "src/cognition/global/global_prompts/L2_global_strategy.md"
+# cognition/src/global_mod/global_functions.py
+import os
 
+# Retrieve prompt paths from environment variables
+L1_prompt_path = os.getenv('L1_PROMPT_PATH', 'src/global_mod/global_prompts/L1_aspiration.md')
+L2_prompt_path = os.getenv('L2_PROMPT_PATH', 'src/global_mod/global_prompts/L2_global_strategy.md')
 
 def read_markdown_prompt(file_path):
     with open(file_path, 'r') as f:

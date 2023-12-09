@@ -8,12 +8,8 @@ memory/ <-- Handles short and long term data management
 ├── requirements.txt
 ├── .dockerignore
 ├── kb/
-│   ├── pod/
-│   │   └── ace_memory.yaml
-│   ├── service/
-│   │   └── memory_service.yaml
-│   └── deployment/
-│       └── memory_deployment.yaml
+│   ├── memory_deployment.yaml
+│   └── memory_service.yaml
 └── src/
     ├── memory_main.py <-- Starts `Memory` module  
     ├── error_handling/

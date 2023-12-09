@@ -1,0 +1,19 @@
+# cognition/src/global_mod/global_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: global-config
+data:
+  # Constants
+  MAX_DECISION_LATENCY: "1.0"
+  RISK_ASSESSMENT_THRESHOLD: "0.7"
+  RESOURCE_UTILIZATION_LIMIT: "80"
+  ETHICAL_PRINCIPLE_HARM_REDUCTION: "1.0"
+  ETHICAL_PRINCIPLE_FAIRNESS: "0.8"
+  ETHICAL_PRINCIPLE_EQUITY: "0.9"
+  MODEL_VERSION: "1.0"
+
+  # Paths
+  L1_PROMPT_PATH: "src/global_mod/global_prompts/L1_aspiration.md"
+  L2_PROMPT_PATH: "src/global_mod/global_prompts/L2_global_strategy.md"

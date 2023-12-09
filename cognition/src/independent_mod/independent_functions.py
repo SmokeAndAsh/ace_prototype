@@ -1,8 +1,9 @@
-# src/cognition/independent/independent_functions.py
-from independent_const import EmotionalState
+# cognition/src/independent_mod/independent_functions.py
+import os
+from independent_const import EmotionalState, PersonalityTrait
 
-L3_prompt_path = "src/cognition/independent/independent_prompts/L3_agent_model.md"
-L4_prompt_path = "src/cognition/independent/independent_prompts/L4_executive_function.md"
+L3_prompt_path = os.getenv('L3_PROMPT_PATH', 'src/independent_mod/independent_prompts/L3_agent_model.md')
+L4_prompt_path = os.getenv('L4_PROMPT_PATH', 'src/independent_mod/independent_prompts/L4_executive_function.md')
 
 
 def read_markdown_prompt(file_path):
@@ -20,6 +21,18 @@ def generate_independent_prompt(prompt_path, input_text):
 
 
 class IndependentFunctions:
+
+    def adjust_personality_traits(new_traits):
+        # Logic to update personality traits based on new_traits
+        # This could involve reading from and writing to a database or file
+        pass
+
+    # Example
+    def handle_task_outcome(success):
+        if success:
+            adjust_personality_traits({PersonalityTrait.CONFIDENCE: True})
+        else:
+            adjust_personality_traits({PersonalityTrait.FRUSTATION: True})
 
     @staticmethod
     def reflection(*args, **kwargs):

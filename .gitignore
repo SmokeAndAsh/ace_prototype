@@ -5,13 +5,13 @@
 __pycache__/
 cognition/__pycache__/
 cognition/src/independent_mod/__pycache__/
-networking/__pycache__/
-networking/src/error_handling/logs/__pycache__/
-networking/src/gateway/llm/__pycache__/
+network__pycache__/
+network/src/error_handling/logs/__pycache__/
+network/src/gateway/llm/__pycache__/
 
 # Ignore project files
 config.py
-models/*
+library/*
 cognition/src/independent_mod/agent_persona.py
 networking/src/error_handling/logs/northbound_log.txt
 networking/src/error_handling/logs/southbound_log.txt

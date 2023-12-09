@@ -1,4 +1,4 @@
-# src/cognition/independent/independent_const.py
+# cognition/src/independent_mod/independent_const.py
 
 """
 The `Independent` module is somewhere in-between being abstract and concrete.

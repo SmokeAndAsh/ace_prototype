@@ -1,5 +1,5 @@
 FROM python:3.10-slim
 WORKDIR /cognition
-COPY src/cognition/ ./
+COPY ./ ./
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "./cognition_main.py"]
+CMD ["python", "./src/cognition_main.py"]

@@ -1,4 +1,4 @@
-# src/cognition/independent/agent_persona.py
+# cognition/src/independent_mod/agent_persona.py
 from independent_const import PersonalityTrait
 
 

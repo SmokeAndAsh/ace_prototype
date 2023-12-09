@@ -1,5 +1,0 @@
-diskcache
-flask
-llama-cpp-python
-numpy
-typing-extensions
