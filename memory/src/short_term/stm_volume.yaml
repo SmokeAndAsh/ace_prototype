@@ -1,0 +1,12 @@
+# memory/short_term/stm_volume.yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: stm-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

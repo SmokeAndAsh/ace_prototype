@@ -1,0 +1,12 @@
+# memory/reflective/ref_volume.yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ref-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

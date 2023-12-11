@@ -1,0 +1,12 @@
+# memory/kb/psql_config.yaml
+
+global:
+  storageClass: "standard"
+
+postgresql:
+  username: "ace_user"
+  password: "ace_password"
+  database: "memory_nexus"
+  persistence:
+    enabled: true
+    size: "8Gi"

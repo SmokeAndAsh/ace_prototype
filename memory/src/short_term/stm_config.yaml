@@ -1,0 +1,17 @@
+# memory/src/short_term/stm_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stm-config
+data:
+  stm-schema.sql: |
+    CREATE TABLE IF NOT EXISTS stm_table (
+        message_id SERIAL PRIMARY KEY,
+        conversation_id INTEGER NOT NULL,
+        platform TEXT NOT NULL,
+        timestamp TIMESTAMP NOT NULL,
+        recipients TEXT NOT NULL,
+        sender TEXT NOT NULL,
+        message TEXT NOT NULL
+    );

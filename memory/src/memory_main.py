@@ -1,4 +1,4 @@
-# src/memory/memory_main.py
+# memory/src/memory_main.py
 
 def simulate_short_term_memory_operation():
     # Simulate a basic operation for short-term memory

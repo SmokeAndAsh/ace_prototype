@@ -1,0 +1,14 @@
+# memory/src/reflective/ref_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ref-config
+data:
+  ref-schema.sql: |
+    CREATE TABLE IF NOT EXISTS ref_table (
+        entry_id SERIAL PRIMARY KEY,
+        entry_date DATE NOT NULL,
+        entry_time DATETIME NOT NULL,
+        content TEXT NOT NULL
+    );

@@ -1,0 +1,40 @@
+# cognition/kb/cognition_deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cognition-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cognition
+  template:
+    metadata:
+      labels:
+        app: cognition
+    spec:
+      initContainers:
+        - name: init-db
+          image: postgres:latest
+          command: [ 'sh', '-c', 'execute some script to initialize DB' ]
+      containers:
+        - name: cognition-container
+          image: cognition-module:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5001
+          env:
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_DB
+              value: yourdbname
+            - name: POSTGRES_USER
+              value: yourusername
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password

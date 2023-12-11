@@ -1,0 +1,12 @@
+# memory/long_term/ltm_volume.yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ltm-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

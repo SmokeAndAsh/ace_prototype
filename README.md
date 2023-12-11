@@ -12,7 +12,7 @@ ace/ <-- Project root
 │   ├── 000
 │   ├── ...
 │   └── 900
-├── cognition <-- High-level cognitive processes for the agent
+├── cognition/ <-- High-level cognitive processes for the agent
 │   ├── COGNITION.md
 │   ├── Dockerfile
 │   ├── requirements.txt
@@ -31,9 +31,9 @@ ace/ <-- Project root
 │   └── src/
 │       ├── memory_main.py <-- Starts `Memory` container
 │       ├── error_handling/ <-- Memory error handling
-│       ├── short_term_data/ <-- Cached, refreshed frequently
-│       ├── long_term_data/ <-- Vectorized, reviewed periodically
-│       └── reflective_data/ <-- NLP Interpreted, like a "journal"
+│       ├── short_term/ <-- Cached, refreshed frequently
+│       ├── long_term/ <-- Vectorized, reviewed periodically
+│       └── reflective/ <-- NLP Interpreted, like a "journal"
 └── network/ <-- Handles APIs and Northbound/Southbound buses
     ├── NETWORK.md
     ├── Dockerfile
@@ -90,10 +90,10 @@ The **Southbound Bus** carries instructions through the ACE agent.  Provides dir
 
 # Programming Stack
 
-- Programming Language(s): Python, Dockerfile
+- Programming Language(s): Python
 - API Framework: Flask
 - Configuration: ConfigMaps
-- Container Management: Kubernetes, MicroK8s, Podman
+- Container Management: Podman, MicroK8s, Kubernetes
 - Container Orchestration: Helm Charts
 - Database Management: PostgreSQL
 - Logging: Prometheus, Grafana

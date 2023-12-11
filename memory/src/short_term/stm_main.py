@@ -1,4 +1,4 @@
-# src/memory/stm_main.py
+# memory/src/stm_main.py
 import time
 from collections import deque
 from src.cognition.independent.agent_persona import AgentPersona

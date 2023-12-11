@@ -1,0 +1,14 @@
+# memory/src/long_term/ltm_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ltm-config
+data:
+  ltm-schema.sql: |
+    CREATE TABLE IF NOT EXISTS ltm_table (
+        conversation_id SERIAL PRIMARY KEY,
+        platform TEXT NOT NULL,
+        participants TEXT NOT NULL,
+        key_details TEXT NOT NULL
+    );

@@ -1,0 +1,53 @@
+# memory/kb/memory_deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory
+  template:
+    metadata:
+      labels:
+        app: memory
+    spec:
+      initContainers:
+        - name: init-memory-db
+          image: postgres:latest
+          command: ['sh', '-c', 'psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB -a -f /config/ltm/ltm-schema.sql -f /config/stm/stm-schema.sql -f /config/ref/ref-schema.sql']
+          env:
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_USER
+              value: yourusername
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+          volumeMounts:
+            - name: ltm-volume
+              mountPath: /config/ltm
+            - name: stm-volume
+              mountPath: /config/stm
+            - name: ref-volume
+              mountPath: /config/ref
+      containers:
+        - name: memory-container
+          image: memory-module:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5002
+      volumes:
+        - name: ltm-volume
+          configMap:
+            name: ltm-config
+        - name: stm-volume
+          configMap:
+            name: stm-config
+        - name: ref-volume
+          configMap:
+            name: ref-config
