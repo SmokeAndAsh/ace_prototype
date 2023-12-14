@@ -8,10 +8,11 @@ ace/ <-- Project root
 ├── README.md
 ├── start.py <-- Currently for testing purposes
 ├── library/ <-- Library for llamafiles
-│   ├── LIBRARY.md
-│   ├── 000
-│   ├── ...
-│   └── 900
+├── system/ <-- ACE system management
+│   ├── SYSTEM.md
+│   ├── northbound_bus.py <-- Telemetry
+│   ├── southbound_bus.py <-- Control
+│   └── logs/ <-- Logs from the bus system
 ├── cognition/ <-- High-level cognitive processes for the agent
 │   ├── COGNITION.md
 │   ├── Dockerfile
@@ -41,11 +42,10 @@ ace/ <-- Project root
     ├── kb/ <-- Kubernetes files
     └── src/
         ├── network_main.py <-- Starts `Network` container
-        ├── northbound_bus.py <-- Telemetry
-        ├── southbound_bus.py <-- Control
         ├── error_handling/ <-- Network error handling
-        ├── gateway/ <-- Internal and external communications management
-        └── logs/ <-- Logs from the Northbound Bus
+        ├── clients/ <--Manages interactions with external clients
+        ├── connections/ <-- Manages connections, requests, and queues
+        └── gateway/ <-- Handles API gateway
 ```
 
 ## High-Level

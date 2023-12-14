@@ -1,1 +1,2 @@
 # src/cognition/.dockerignore
+cognition/kb/cognition_secret.yaml

@@ -1,9 +1,9 @@
-# src/networking/gateway/clients/terminal_cli.py
-from networking.src.northbound_bus import NorthboundBus
-from networking.src.southbound_bus import SouthboundBus
-from src.cognition.global_mod.global_functions import generate_global_prompt, L1_prompt_path, L2_prompt_path
-from src.cognition.independent_mod.independent_functions import generate_independent_prompt, L3_prompt_path, L4_prompt_path
-from src.cognition.focus_mod.focus_functions import generate_focus_prompt, L5_prompt_path, L6_prompt_path
+# network/src/clients/terminal_cli.py
+from system.northbound_bus import NorthboundBus
+from system.southbound_bus import SouthboundBus
+from cognition.src.global_mod.global_functions import generate_global_prompt, L1_prompt_path, L2_prompt_path
+from cognition.src.independent_mod.independent_functions import generate_independent_prompt, L3_prompt_path, L4_prompt_path
+from cognition.src.focus_mod.focus_functions import generate_focus_prompt, L5_prompt_path, L6_prompt_path
 
 def start_cli():
     # Initialize buses

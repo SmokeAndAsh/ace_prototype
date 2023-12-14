@@ -9,3 +9,8 @@ cognition/src/independent_mod/agent_persona.py
 network/src/error_handling/logs/northbound_log.txt
 network/src/error_handling/logs/southbound_log.txt
 network/src/gateway/llm/prompt_templates/*
+
+# Ignore secrets
+cognition/kb/cognition_secret.yaml
+memory/kb/memory_secret.yaml
+network/kb/network_secret.yaml

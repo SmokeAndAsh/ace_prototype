@@ -1,1 +1,2 @@
 # src/memory/.dockerignore
+memory/kb/memory_secret.yaml
