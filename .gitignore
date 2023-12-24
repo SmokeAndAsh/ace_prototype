@@ -3,7 +3,7 @@
 *.iml
 
 # Ignore large project files
-library/*
+library/models/*
 
 # Ignore test files
 cognition/tests/*
