@@ -1,6 +1,4 @@
 # network/src/gateway/clients/novelai_cli.py
-
-import os
 import requests
 from src.gateway.clients.lang_clients.lang_cli import LanguageClient
 from src.error_handling.client_error_handler import ClientCredentialsError, ClientRequestError
@@ -45,19 +43,44 @@ class NovelAIClient(LanguageClient):
         # Implement NovelAI-specific startup logic
         return True
 
-    def generate_text(self, input_text, model, parameters):
-        try:
-            url = f"{self.base_url}/ai/generate"
-            data = {
-                "input": input_text,
-                "model": model,
-                "parameters": parameters
-            }
+    def get_routes(self):
+        # Define specific routes for NovelAI Client
+        return [
+            {
+                'rule': '/api/novelai/generate',
+                'methods': ['POST'],
+                'endpoint': self.generate_text_endpoint,
+            },
+        ]
 
+    def generate_text_endpoint(self):
+        # Flask view function for handling generation requests
+        try:
+            data = request.json
+            response = self.generate_text(data['input'], data.get('model'), data.get('parameters'))
+            return jsonify(response)
+        except GatewayRequestError as e:
+            return jsonify({"error": str(e)}), 400
+        except Exception as e:
+            return jsonify({"error": "An unexpected error occurred"}), 500
+
+    def generate_text(self, input_text, model='kayra-v1', parameters=None):
+        parameters = parameters or {
+            "use_string": True,
+            "temperature": 1,
+            "min_length": 1,
+            "max_length": 100
+        }
+        url = f"{self.base_url}/ai/generate"
+        data = {
+            "input": input_text,
+            "model": model,
+            "parameters": parameters
+        }
+        try:
             response = requests.post(url, json=data, headers=self.headers)
             response.raise_for_status()
             return response.json()
-
         except requests.exceptions.RequestException as e:
             print(f"Request Exception in NovelAI Client: {e}")
             return {"error": str(e)}

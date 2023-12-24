@@ -27,3 +27,12 @@ class WebClient(BaseClient):
         # Implement web client specific start logic
         print(f"Starting {self.name}...")
         return self.start_web()
+
+    def get_routes(self):
+        # Implement web client specific list of route definitions
+        return [
+            {
+                'methods': ['GET'],
+                'endpoint': '/health',
+            },
+        ]

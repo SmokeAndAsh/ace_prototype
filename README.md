@@ -7,7 +7,7 @@ A very in-process prototype for an Autonomous Cognitive Entity based on David Sh
 ace/ <-- Project root
 ├── README.md
 ├── start.py <-- Currently for testing purposes
-├── library/ <-- Library for llamafiles
+├── library/ <-- Library for system models
 ├── system/ <-- ACE system management
 │   ├── SYSTEM.md
 │   ├── northbound_bus.py <-- Telemetry
@@ -16,47 +16,61 @@ ace/ <-- Project root
 ├── cognition/ <-- High-level cognitive processes for the agent
 │   ├── COGNITION.md
 │   ├── Dockerfile
-│   ├── requirements.txt
+│   ├── pyproject.toml
 │   ├── kb/ <-- Kubernetes files
 │   └── src/
-│       ├── cognition_main.py <-- Starts `Cognition` container
-│       ├── error_handling/ <-- Cognition error handling
+│       ├── cognition_start.py <-- Starts `Cognition` module
+│       ├── cognition_diagnostics.py <-- Checks `Cognition` module health
+│       ├── error_handling/ <-- `Cognition` module error handling
 │       ├── global_mod/ <-- Global cognitive module
 │       ├── independent_mod/ <-- Independent cognitive module
-│       └── focus_mod/ <-- Focus cognitive module
+│       ├── focus_mod/ <-- Focus cognitive module
+│       └── tests/ <-- Various testing files
 ├── memory/ <-- Handles short and long term data management
 │   ├── MEMORY.md
 │   ├── Dockerfile
-│   ├── requirements.txt
+│   ├── pyproject.toml
 │   ├── kb/ <-- Kubernetes files
 │   └── src/
-│       ├── memory_main.py <-- Starts `Memory` container
-│       ├── error_handling/ <-- Memory error handling
+│       ├── memory_start.py <-- Starts `Memory` module
+│       ├── memory_diagnostics.py <-- Checks `Memory` module health
+│       ├── error_handling/ <-- `Memory` module error handling
 │       ├── short_term/ <-- Cached, refreshed frequently
 │       ├── long_term/ <-- Vectorized, reviewed periodically
-│       └── reflective/ <-- NLP Interpreted, like a "journal"
-└── network/ <-- Handles APIs and Northbound/Southbound buses
+│       ├── reflective/ <-- NLP Interpreted, like a "journal"
+│       └── tests/ <-- Various testing files
+└── network/ <-- Handles APIs, connections and queues
     ├── NETWORK.md
     ├── Dockerfile
-    ├── requirements.txt
+    ├── pyproject.toml
     ├── kb/ <-- Kubernetes files
     └── src/
-        ├── network_main.py <-- Starts `Network` container
-        ├── error_handling/ <-- Network error handling
-        ├── clients/ <--Manages interactions with external clients
+        ├── network_start.py <-- Starts `Network` module
+        ├── network_diagnostics.py <-- Checks `Network` module health
+        ├── error_handling/ <-- `Network` module error handling
+        ├── gateway/ <-- Handles API gateway
         ├── connections/ <-- Manages connections, requests, and queues
-        └── gateway/ <-- Handles API gateway
+        └── tests/ <-- Various testing files
 ```
 
-## High-Level
+# Prototype Overview
+
+**System** handles the `Northbound` and `Southbound` busses that receives and delivers information securely throughout the ACE agent's system.
 
 **Cognition** handles high-level and abstract concepts like personality, task distribution and prioritization, ethical considerations and such. Practically speaking, it would be the final arbiter in how an agent executes a task if there's something causing indecision in the other modules.
 
 **Memory** holds the data from previous interactions, successes, and failures so that the agent can reflect on and recall the appropriate information for responses to external stimulus, like conversations and eventually sensory data and things like that.
 
-**Network** handles the nitty gritty interactions between internal functions and services, which is gonna make it the most technically focused and program-heavy portion of the whole system. API management, dealing with errors, basically making sure the whole system won't crash if something gets caught up in it.
+**Network** handles the interactions between the internal ACE modules and external functions and services, API monitoring and management, and secure transfer and management of external data.
 
-**Example:** Language models exist in the `Network` module and are steered by the `Cognition` module, which are influenced by the data it pulls and reflects on from the `Memory` module.
+**Example:** Language models exist are managed by the `Cognition` module which is influenced by the data it pulls and reflects on from the `Memory` module, and then returns a decision for a response or action to the `Network` module to execute through relevant APIs.
+
+## System
+The **Northbound Bus** carries internal and external data through the ACE agent. Provides telemetry and useful data to flow through the agent while logging and handling errors and exceptions as they arise.
+
+The **Southbound Bus** carries instructions through the ACE agent.  Provides direction and guidance for processes and functions throughout the system.
+
+**Example:** The `Southbound Bus` directs the appropriate processes in response to the input received from a given module. If an error occurs or telemetry is meant to be documented, the `Northbound Bus` will track and log this data, and respond to any exceptions as needed.
 
 ## Cognition
 
@@ -80,20 +94,20 @@ And the **Focus** module is for handling very specific task, like dealing with A
 
 ## Network
 
-The **Gateway** handles interactions with inputs and outputs from APIs, such as language models and external services.
+The **Gateway** submodule manages general interactions with external processes and services, as well as orchestrating the `Clients` and `Connections` in the `Network` module..
 
-The **Northbound Bus** carries internal and external data through the ACE agent. Provides telemetry and useful data to flow through the agent while logging and handling errors and exceptions as they arise.
+**Connection** is a `Gateway` class that refers to connections, requests, and queues in the `Network` module.
 
-The **Southbound Bus** carries instructions through the ACE agent.  Provides direction and guidance for processes and functions throughout the system.
+**Client** is a `Gateway` class that refers to client-specific interactions, details and processes in the `Network` module.
 
-**Example:** The `Southbound Bus` directs the appropriate processes in response to the input received from the `Gateway` module and interactions from APIs and so on. If an error occurs or telemetry is meant to be documented, the `Northbound Bus` will track and log this data, and respond to any exceptions as needed.
+**Example:** To communicate with the ACE agent through a platform like Discord, you would need the `Gateway` submodule to initialize a `LanguageClient` to generate responses and a `CommunicatonClient` to provide proper authentication, with the `HttpConnection` properly set to handle requests and errors as needed.
 
 # Programming Stack
 
 - Programming Language(s): Python
 - API Framework: Flask
 - Configuration: ConfigMaps
-- Container Management: Podman, MicroK8s, Kubernetes
+- Container Management: Podman, Kind, Kubernetes
 - Container Orchestration: Helm Charts
 - Database Management: PostgreSQL
 - Logging: Prometheus, Grafana
