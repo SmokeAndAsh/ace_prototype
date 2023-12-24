@@ -4,7 +4,7 @@ class ClientError(Exception):
     def __init__(self, message="A client error occurred"):
         super().__init__(message)
 
-class ClientAuthenticationError(ClientError):
+class ClientAuthError(ClientError):
     """Exception raised for client authentication failures."""
 
     def __init__(self, client_name, message="Client authentication failed"):

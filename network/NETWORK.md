@@ -14,23 +14,12 @@ network <-- Handles APIs, connections and queues
 └── src/
     ├── network_start.py <-- Starts `Network` module
     ├── network_diagnostics.py <-- Checks `Network` module health
-    ├── error_handling/ <-- Network module error handling
+    ├── error_handling/ <-- `Network` module error handling
     │   ├── network_error_handler.py <-- Handles general network errors    
     │   ├── client_error_handler.py <-- Handles client-specific errors
     │   └── gateway_error_handler.py <-- Handles gateway-specific errors    
     ├── gateway/ <-- Handles API gateway
-    │   ├── gateway_main.py <-- Primary gateway, handles clients, connections and routes
-    │   ├── api_routes.py <-- Manages internal and external API routes
-    │   ├── client_handler.py <-- Handles generalized client utilities
-    │   └── clients/ <-- Holds code for interactions with external clients
-    │       ├── comm_clients/ <-- Handles `CommunicationClient` interactions
-    │       ├── lang_clients/ <-- Handles `LanguageClient` interactions
-    │       ├── sys_clients/ <-- Handles `SystemClient` interactions
-    │       └── web_clients/ <-- Handles `WebClient` interactions
     ├── connections/ <-- Manages connections, requests, and queues
-    │   ├── db_connections/ <-- Handles database requests and connections
-    │   ├── http_connections/ <-- Handles http requests and connections
-    │   └── queue_connections/ <-- Handles message queue requests and connections
     └── tests/ <-- Various testing files
 ```
 
@@ -41,8 +30,19 @@ network <-- Handles APIs, connections and queues
 - requests
 - PyNaCl
 
-# Network Module
-## Start Up
+# Network Error Handling
+_src/error_handling/_
+**network_error_handler.py**
+Handles general errors within the `Network` module.
+
+NetworkError Exceptions:
+- NetworkConfigError
+- NetworkInitError
+- NetworkTimeoutError
+
+See relevant submodules for detailed error handling descriptions.
+
+# Network Start Up
 1. Build module image (Podman)
 ```
 podman build -t localhost/network-module:latest .

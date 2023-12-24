@@ -11,6 +11,10 @@ from src.gateway.clients.web_cli import WebClient
 
 logging.basicConfig(level=logging.INFO)
 
+# TODO: incorporate `client_registry` and `route_registry` into start script
+# client_registry = ClientRegistry()
+# client_registry.register("language", LanguageClient)
+
 def start_network_module():
     diagnostics_report = run_diagnostics()
 

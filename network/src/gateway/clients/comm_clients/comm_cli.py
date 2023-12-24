@@ -21,5 +21,11 @@ class CommunicationClient(BaseClient):
         # Insert Communication-specific startup logic here
         return True
 
-
-
+    def get_routes(self):
+        # Implement communication client specific list of route definitions
+        return [
+            {
+                'methods': ['GET'],
+                'endpoint': '/health',
+            },
+        ]

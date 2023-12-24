@@ -15,3 +15,12 @@ class SystemClient(BaseClient):
         print(f"Starting {self.name}...")
         # Insert System-specific startup logic here
         return True
+
+    def get_routes(self):
+        # Implement system client specific list of route definitions
+        return [
+            {
+                'methods': ['GET'],
+                'endpoint': '/health',
+            },
+        ]

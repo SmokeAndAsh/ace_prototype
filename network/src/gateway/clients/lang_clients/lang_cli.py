@@ -23,6 +23,16 @@ class LanguageClient(BaseClient):
         # Insert Language-specific startup logic here
         return True
 
+    def get_routes(self):
+        # Implement language client specific list of route definitions
+        return [
+            {
+                'rule': '/api/language/generate',
+                'methods': ['POST'],
+                'endpoint': generate_language,
+            },
+        ]
+
     def generate_text(self, input_text, model=None, parameters=None):
         # Define a generic language generation method that can be overridden
         raise ClientImplementationError(self.name, "generate_text", self.__class__.__name__)
