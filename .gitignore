@@ -1,18 +1,24 @@
-# Ignore .idea and cache files
-/shelf/
-/.idea/*
-/workspace.xml
+# Ignore production files
+.idea
+*.iml
 
-# Ignore project files
+# Ignore large project files
 library/*
-cognition/src/independent_mod/agent_persona.py
 
 # Ignore test files
-cognition/tests
-memory/tests
-network/tests
+cognition/tests/*
+memory/tests/*
+network/tests/*
 
 # Ignore secrets
 cognition/kb/cognition_secret.yaml
 memory/kb/memory_secret.yaml
 network/kb/network_secret.yaml
+
+# Ignore logs
+system/logs/northbound_log.txt
+system/logs/southbound_log.txt
+
+# Ignore misc files
+NAI.md
+cognition/src/independent_mod/agent_persona.py
