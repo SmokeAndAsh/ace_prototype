@@ -1,0 +1,13 @@
+# network/kb/network_config.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: network-config
+data:
+  TERMINAL_CLIENT_ENABLED: "True"
+  WEB_CLIENT_ENABLED: "False"
+  PRIMARY_COMMUNICATION_CLIENT: "terminal"
+  SECONDARY_COMMUNICATION_CLIENT: "terminal"
+  PRIMARY_LANGUAGE_CLIENT: "novelai"
+  SECONDARY_LANGUAGE_CLIENT: "local"

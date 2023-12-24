@@ -14,13 +14,36 @@ spec:
       labels:
         app: network
     spec:
-      initContainers:
-        - name: init-db
-          image: postgres:latest
-          command: [ 'sh', '-c', 'execute some script to initialize DB' ]
       containers:
         - name: network-container
-          image: network-module:latest
+          image: localhost/network-module:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: network-config
+          env:
+            - name: NETWORK_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: network-secret
+                  key: network_key
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: network-secret
+                  key: discord_token
+            - name: NOVELAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: network-secret
+                  key: novelai_api_key
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080

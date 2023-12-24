@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "network-module"
+version = "0.1.0"
+dependencies = [
+    "confluent-kafka",
+    "discord.py",
+    "Flask",
+    "PyNaCl",
+    "requests"
+]
+requires-python = ">=3.10"
+authors = [
+    {name = "Ash MM", email = "SmokeAndAsh@github.com"}
+]
+description = "A network module for the ACE agent system"
+readme = {file = "NETWORK.md", content-type = "text/markdown"}
+license = {text = "GPL-3.0 License"}
+keywords = ["ace", "agent", "AI", "autonomous"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10"
+]
+
+[project.urls]
+Documentation = "https://github.com/SmokeAndAsh/ace_prototype/blob/main/README.md"
+Repository = "https://github.com/SmokeAndAsh/ace_prototype.git"
+
+[tool.setuptools.packages]
+find = {}
