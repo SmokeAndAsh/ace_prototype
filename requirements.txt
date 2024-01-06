@@ -1,0 +1,7 @@
+Authlib
+Flask
+Flask-SQLAlchemy
+prometheus_flask_exporter
+psycopg2
+requests
+SQLAlchemy

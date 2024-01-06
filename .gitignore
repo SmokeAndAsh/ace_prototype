@@ -1,0 +1,10 @@
+.idea/
+*.egg-info/
+__pycache__/
+build/
+dist/
+out/
+*.iml
+.env
+secret.yaml
+*_secret.yaml
